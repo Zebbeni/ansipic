@@ -6,23 +6,15 @@ A Go library for converting images to ANSI art. Renders images as colored termin
 
 ### Unicode Half Blocks (default)
 
-<!-- TODO: Terminal screenshot showing a photo rendered with default Unicode half-block settings -->
-![Unicode Half Blocks](https://placeholder.com/unicode-half.png)
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/29e28873-0920-4a40-9799-59e667927eb2" />
 
 ### ASCII Characters
 
-<!-- TODO: Terminal screenshot showing the same image rendered with ASCII characters -->
-![ASCII Mode](https://placeholder.com/ascii.png)
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/bdb13e0d-d70b-44cd-8d12-81fe988d24d6" />
 
 ### Limited Palette with Dithering
 
-<!-- TODO: Terminal screenshot showing an image rendered with a limited color palette and dithering enabled -->
-![Palette + Dithering](https://placeholder.com/palette-dither.png)
-
-### Alpha Transparency
-
-<!-- TODO: Terminal screenshot showing a transparent PNG rendered with partial-block alpha edges -->
-![Alpha Transparency](https://placeholder.com/alpha.png)
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/c1bc1ffe-d1bb-4f40-9177-2c79ba747e8d" />
 
 ## Install
 
