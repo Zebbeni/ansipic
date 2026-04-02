@@ -1,4 +1,4 @@
-package ansipic
+package ansipx
 
 import (
 	"image"

@@ -1,4 +1,4 @@
-# ansipic
+# ansipx
 
 A Go library for converting images to ANSI art. Renders images as colored terminal text using ASCII characters, Unicode block characters, or custom character sets. Supports static images and animated GIFs.
 
@@ -27,7 +27,7 @@ A Go library for converting images to ANSI art. Renders images as colored termin
 ## Install
 
 ```
-go get github.com/Zebbeni/ansipic
+go get github.com/Zebbeni/ansipx
 ```
 
 ## Usage
@@ -38,12 +38,12 @@ package main
 import (
 	"fmt"
 
-	"github.com/Zebbeni/ansipic"
+	"github.com/Zebbeni/ansipx"
 )
 
 func main() {
 	// Render with default settings (Unicode half-blocks, true color, fit 50x40)
-	result, err := ansipic.RenderFile("photo.png", ansipic.DefaultOptions())
+	result, err := ansipx.RenderFile("photo.png", ansipx.DefaultOptions())
 	if err != nil {
 		panic(err)
 	}
@@ -54,7 +54,7 @@ func main() {
 ### With a palette
 
 ```go
-opts := ansipic.DefaultOptions()
+opts := ansipx.DefaultOptions()
 opts.TrueColor = false
 opts.Palette = color.Palette{
 	colorful.MustParseHex("#000000"),
@@ -62,33 +62,33 @@ opts.Palette = color.Palette{
 	colorful.MustParseHex("#ffffff"),
 }
 
-result, _ := ansipic.RenderFile("photo.png", opts)
+result, _ := ansipx.RenderFile("photo.png", opts)
 fmt.Print(result)
 ```
 
 ### ASCII mode
 
 ```go
-opts := ansipic.DefaultOptions()
-opts.CharacterMode = ansipic.Ascii
-opts.AsciiCharSet = ansipic.AsciiAll
+opts := ansipx.DefaultOptions()
+opts.CharacterMode = ansipx.Ascii
+opts.AsciiCharSet = ansipx.AsciiAll
 
-result, _ := ansipic.RenderFile("photo.png", opts)
+result, _ := ansipx.RenderFile("photo.png", opts)
 fmt.Print(result)
 ```
 
 ### Custom characters
 
 ```go
-opts := ansipic.DefaultOptions()
-opts.CharacterMode = ansipic.Custom
+opts := ansipx.DefaultOptions()
+opts.CharacterMode = ansipx.Custom
 opts.CustomChars = []rune(".:+#@")
-opts.SelectionMode = ansipic.DarkVariance // map by brightness (dark to light)
-// opts.SelectionMode = ansipic.LightVariance // map by brightness (light to dark)
-// opts.SelectionMode = ansipic.Repeat        // cycle through chars
-// opts.SelectionMode = ansipic.Random        // pick at random (use RandomSeed for determinism)
+opts.SelectionMode = ansipx.DarkVariance // map by brightness (dark to light)
+// opts.SelectionMode = ansipx.LightVariance // map by brightness (light to dark)
+// opts.SelectionMode = ansipx.Repeat        // cycle through chars
+// opts.SelectionMode = ansipx.Random        // pick at random (use RandomSeed for determinism)
 
-result, _ := ansipic.RenderFile("photo.png", opts)
+result, _ := ansipx.RenderFile("photo.png", opts)
 fmt.Print(result)
 ```
 
@@ -96,13 +96,13 @@ fmt.Print(result)
 
 ```go
 img, _, _ := image.Decode(reader)
-result, err := ansipic.Render(img, ansipic.DefaultOptions())
+result, err := ansipx.Render(img, ansipx.DefaultOptions())
 ```
 
 ### Animated GIFs
 
 ```go
-frames, err := ansipic.RenderGIF("animation.gif", ansipic.DefaultOptions())
+frames, err := ansipx.RenderGIF("animation.gif", ansipx.DefaultOptions())
 if err != nil {
 	panic(err)
 }
@@ -116,12 +116,12 @@ for _, frame := range frames {
 ### Alpha transparency
 
 ```go
-opts := ansipic.DefaultOptions()
+opts := ansipx.DefaultOptions()
 opts.OutputAlpha = true          // transparent pixels render as empty space
 opts.AlphaThreshold = 0.5       // pixels with alpha below 0.5 are treated as transparent
 opts.TrimAlpha = true            // crop transparent borders from output
 
-result, _ := ansipic.RenderFile("sprite.png", opts)
+result, _ := ansipx.RenderFile("sprite.png", opts)
 fmt.Print(result)
 ```
 
@@ -130,14 +130,14 @@ When alpha is enabled with Unicode block characters, partially transparent cells
 ### Text style
 
 ```go
-opts := ansipic.DefaultOptions()
-opts.TextStyle = ansipic.TextStyle{
+opts := ansipx.DefaultOptions()
+opts.TextStyle = ansipx.TextStyle{
 	Bold:      true,
 	Italic:    true,
 	Underline: true,
 }
 
-result, _ := ansipic.RenderFile("photo.png", opts)
+result, _ := ansipx.RenderFile("photo.png", opts)
 fmt.Print(result)
 ```
 
@@ -145,10 +145,10 @@ fmt.Print(result)
 
 ```go
 bg := colorful.MustParseHex("#1a1a2e")
-opts := ansipic.DefaultOptions()
+opts := ansipx.DefaultOptions()
 opts.SolidBackgroundColor = &bg
 
-result, _ := ansipic.RenderFile("photo.png", opts)
+result, _ := ansipx.RenderFile("photo.png", opts)
 fmt.Print(result)
 ```
 

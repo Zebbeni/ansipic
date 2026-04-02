@@ -1,4 +1,4 @@
-module github.com/Zebbeni/ansipic
+module github.com/Zebbeni/ansipx
 
 go 1.23.2
 
